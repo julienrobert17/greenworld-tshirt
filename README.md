@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# 🌱 Green World - Trajet du T-shirt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application React interactive qui retrace le parcours environnemental et social d'un t-shirt, de la matière première à la fin de vie.
 
-Currently, two official plugins are available:
+## ✨ Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **6 étapes détaillées** : Matières premières, teinture, confection, transport, usage et fin de vie
+- **Images immersives** : Backgrounds full-screen avec overlays de contenu
+- **Navigation intuitive** : Timeline interactive + navigation clavier (←/→)
+- **Données externalisées** : Contenu géré via JSON pour une maintenance facile
+- **Design responsive** : Interface adaptée mobile et desktop
+- **Animations fluides** : Transitions avec Framer Motion
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 18** + TypeScript
+- **Vite** - Build tool moderne
+- **SCSS/Sass** - Styles avec variables et mixins
+- **Framer Motion** - Animations et transitions
+- **Lucide React** - Icônes modernes
+- **Architecture BEM** - CSS organisé et maintenable
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Installation et lancement
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Cloner le projet
+git clone https://github.com/julienrobert17/greenworld-tshirt.git
+cd greenworld-tshirt
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Installer les dépendances
+npm install
+
+# Lancer en développement
+npm run dev
+
+# Build pour production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Structure du projet
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── assets/
+│   ├── data.json          # Données des étapes
+│   └── image/             # Images sources
+├── components/
+│   ├── TrajetTShirt.tsx   # Composant principal
+│   └── ui/                # Composants UI réutilisables
+└── styles/
+    └── index.scss         # Styles globaux SCSS
+
+public/
+└── images/                # Images optimisées pour le web
+    ├── matieres.jpg
+    ├── teinture.jpg
+    ├── travail.jpg
+    ├── transport.jpg
+    ├── usage.jpg
+    └── fin_vie.jpg
+```
+
+## 🎨 Personnalisation
+
+### Modifier le contenu
+Édite `src/assets/data.json` pour changer :
+- Les textes des étapes
+- Les statistiques
+- Les alternatives suggérées
+- Les liens du footer
+
+### Changer les images
+Remplace les images dans `public/images/` en gardant les noms correspondant aux IDs des étapes.
+
+### Ajuster les styles
+Modifie les variables SCSS dans `src/index.scss` :
+```scss
+$color-accent-emerald: #10b981;
+$color-bg-dark: #0a0a0a;
+// ...
+```
+
+## 🌍 Impact et objectif
+
+Ce projet vise à sensibiliser aux enjeux environnementaux et sociaux de l'industrie textile en présentant de manière interactive et pédagogique le parcours d'un t-shirt.
+
+---
+
+Développé avec ❤️ pour un avenir plus durable
