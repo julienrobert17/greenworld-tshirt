@@ -1,10 +1,4 @@
-// Variab// Breakpoints responsives
-$breakpoint-xs: 320px;  // Très petits mobiles
-$breakpoint-sm: 640px;  // Mobiles
-$breakpoint-md: 768px;  // Tablettes
-$breakpoint-lg: 1024px; // Desktop
-$breakpoint-large: 1200px; // Large desktop
-$breakpoint-xl: 1280px; // Extra large desktopobales (Green Code optimisées)
+// Variables globales (Green Code optimisées)
 $color-bg-dark: #0a0a0a; // Noir profond pour économiser l'énergie sur OLED
 $color-text-light: #e5e7eb; // Gris clair plutôt que blanc pur (moins éblouissant)
 $color-text-muted: rgba(229, 231, 235, 0.7);
@@ -12,6 +6,14 @@ $color-border-light: rgba(229, 231, 235, 0.15);
 $color-accent-emerald: #10b981;
 $color-accent-emerald-light: #34d399;
 $color-backdrop: rgba(0, 0, 0, 0.3); // Plus sombre pour économiser l'énergie
+
+// Breakpoints responsives
+$breakpoint-xs: 320px;  // Très petits mobiles
+$breakpoint-sm: 640px;  // Mobiles
+$breakpoint-md: 768px;  // Tablettes
+$breakpoint-lg: 1024px; // Desktop
+$breakpoint-large: 1200px; // Large desktop
+$breakpoint-xl: 1280px; // Extra large desktop
 
 // Préférences utilisateur pour réduire les animations si demandé
 @media (prefers-reduced-motion: reduce) {
