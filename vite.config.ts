@@ -17,6 +17,10 @@ export default defineConfig({
     minify: 'esbuild', // Plus rapide que terser
     rollupOptions: {
       output: {
+        // Force cache-busting avec timestamp
+        entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
+        chunkFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
+        assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`,
         // Code splitting pour charger uniquement ce qui est nécessaire
         manualChunks: {
           vendor: ['react', 'react-dom'],

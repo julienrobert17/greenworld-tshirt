@@ -1,0 +1,9 @@
+# GitHub Pages configuration for proper MIME types
+# GitHub Pages will serve .js files with correct application/javascript MIME type
+# This file ensures no Jekyll processing interferes with our assets
+
+# Static file serving
+*.js text/javascript
+*.mjs text/javascript  
+*.css text/css
+*.json application/json
