@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { getAssetPath } from '../lib/assets';
 
 interface OptimizedImageProps {
   src: string;
@@ -38,11 +39,14 @@ export default function OptimizedImage({ src, alt, className, style }: Optimized
       return canvas.toDataURL('image/webp').indexOf('image/webp') === 5;
     };
 
+    // Résoudre le chemin avec la base URL
+    const resolvedSrc = getAssetPath(originalSrc);
+
     if (supportsWebP()) {
       // Remplacer .jpg par .webp si on avait des versions WebP
-      return originalSrc.replace(/\.(jpg|jpeg)$/i, '.webp');
+      return resolvedSrc.replace(/\.(jpg|jpeg)$/i, '.webp');
     }
-    return originalSrc;
+    return resolvedSrc;
   };
 
   return (
@@ -52,7 +56,7 @@ export default function OptimizedImage({ src, alt, className, style }: Optimized
       style={{
         ...style,
         backgroundColor: '#0a0a0a', // Couleur de fond pendant le chargement
-        backgroundImage: isInView && isLoaded ? `url(${src})` : undefined,
+        backgroundImage: isInView && isLoaded ? `url(${getAssetPath(src)})` : undefined,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
