@@ -60,30 +60,10 @@ public/
     └── fin_vie.jpg
 ```
 
-## 🎨 Personnalisation
-
-### Modifier le contenu
-Édite `src/assets/data.json` pour changer :
-- Les textes des étapes
-- Les statistiques
-- Les alternatives suggérées
-- Les liens du footer
-
-### Changer les images
-Remplace les images dans `public/images/` en gardant les noms correspondant aux IDs des étapes.
-
-### Ajuster les styles
-Modifie les variables SCSS dans `src/index.scss` :
-```scss
-$color-accent-emerald: #10b981;
-$color-bg-dark: #0a0a0a;
-// ...
-```
-
 ## 🌍 Impact et objectif
 
 Ce projet vise à sensibiliser aux enjeux environnementaux et sociaux de l'industrie textile en présentant de manière interactive et pédagogique le parcours d'un t-shirt.
 
 ---
 
-Développé avec ❤️ pour un avenir plus durable
+Développé pour un avenir plus durable
