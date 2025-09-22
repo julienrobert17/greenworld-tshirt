@@ -1,11 +1,27 @@
-// Variables globales
-$color-bg-dark: #0a0a0a;
-$color-text-light: #fafafa;
-$color-text-muted: rgba(255, 255, 255, 0.7);
-$color-border-light: rgba(255, 255, 255, 0.15);
+// Variables globales (Green Code optimisées)
+$color-bg-dark: #0a0a0a; // Noir profond pour économiser l'énergie sur OLED
+$color-text-light: #e5e7eb; // Gris clair plutôt que blanc pur (moins éblouissant)
+$color-text-muted: rgba(229, 231, 235, 0.7);
+$color-border-light: rgba(229, 231, 235, 0.15);
 $color-accent-emerald: #10b981;
 $color-accent-emerald-light: #34d399;
-$color-backdrop: rgba(255, 255, 255, 0.1);
+$color-backdrop: rgba(0, 0, 0, 0.3); // Plus sombre pour économiser l'énergie
+
+// Préférences utilisateur pour réduire les animations si demandé
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Mode sombre préféré pour économiser l'énergie
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
 
 // Mixins
 @mixin backdrop-blur {
@@ -51,6 +67,13 @@ body {
   background-color: url(https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600&auto=format&fit=crop);
   color: $color-text-light;
 
+  // Background wrapper pour le composant optimisé
+  &__background-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+  }
+
   &__background {
     position: fixed;
     inset: 0;
@@ -58,6 +81,12 @@ body {
     background-size: cover;
     background-position: center;
     pointer-events: none;
+    
+    // Optimisation : utiliser will-change pour les animations
+    will-change: opacity;
+    
+    // Réduction de la luminosité pour économiser l'énergie sur OLED
+    filter: brightness(0.85);
   }
 
   &__progress {

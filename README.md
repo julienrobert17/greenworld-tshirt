@@ -64,6 +64,27 @@ public/
 
 Ce projet vise à sensibiliser aux enjeux environnementaux et sociaux de l'industrie textile en présentant de manière interactive et pédagogique le parcours d'un t-shirt.
 
----
+## ♻️ Éco-conception & Green Code
+
+Cette application a été développée selon les principes du **Green Code** pour minimiser son impact environnemental :
+
+### 🎯 Optimisations énergétiques
+- **Mode sombre par défaut** : Réduit la consommation d'énergie sur écrans OLED/AMOLED (~60% d'économie)
+- **Images optimisées** : Lazy loading, compression et formats adaptatifs
+- **Animations respectueuses** : Respect de `prefers-reduced-motion` pour les utilisateurs sensibles
+- **CSS critique inline** : Évite les requêtes supplémentaires et le FOUC
+
+### 📱 Performance & efficacité
+- **Bundle optimisé** : Code splitting automatique et minification avancée
+- **Cache intelligent** : Mise en cache des ressources avec PWA manifest
+- **React optimisé** : `React.memo`, `useCallback` et `useMemo` pour éviter les re-renders
+- **Lazy loading** : Chargement des images uniquement quand nécessaires
+
+### 🗂️ Architecture durable
+- **Composants réutilisables** : Réduction de la duplication de code
+- **Données externalisées** : JSON séparé pour faciliter les mises à jour
+- **CSS modulaire** : Variables SCSS et architecture BEM
+- **TypeScript** : Prévention des erreurs et meilleure maintenabilité
+
 
 Développé pour un avenir plus durable

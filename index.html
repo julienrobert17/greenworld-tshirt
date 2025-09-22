@@ -1,13 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta name="theme-color" content="#10b981" />
+    <meta name="description" content="Découvrez l'impact environnemental et social du parcours d'un t-shirt, de la matière première à la fin de vie." />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Green World - Trajet du T-shirt</title>
+    
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    
+    <!-- Optimisations énergétiques -->
+    <style>
+      /* CSS critique inline pour éviter le FOUC et réduire les requêtes */
+      body { 
+        margin: 0; 
+        background-color: #0a0a0a; 
+        color: #e5e7eb; 
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      #root { 
+        width: 100%; 
+        min-height: 100vh; 
+      }
+      /* Réduction du motion si demandé par l'utilisateur */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Squelette de chargement pour améliorer la perception de performance -->
+      <div style="display: flex; align-items: center; justify-content: center; height: 100vh; color: #10b981;">
+        <div>Chargement de l'expérience Green World...</div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

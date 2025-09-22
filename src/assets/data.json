@@ -7,7 +7,7 @@
       "statLabel": "Fibres dominantes (2021)",
       "statValue": "Polyester 60,5 Mt • Coton 24,7 Mt",
       "alt": "Privilégier coton bio (GOTS), lin/chanvre, fibres recyclées. Éviter le greenwashing : “Better Cotton” n’est pas du bio.",
-      "image": "/images/matieres.jpg",
+      "image": "/images/matieres.webp",
       "description": "La mode d’aujourd’hui reste très dépendante du pétrole. Les fibres synthétiques dominent et relarguent des microfibres au lavage ; le coton, lui, pèse sur l’eau, les pesticides et les engrais. À la source, nos choix de matière comptent déjà beaucoup."
     },
     {
@@ -17,7 +17,7 @@
       "statLabel": "Eaux polluées par la production textile",
       "statValue": "~20 % de la pollution de l’eau",
       "alt": "Chercher OEKO-TEX / Bluesign, procédés en boucles d’eau fermées, interdiction des NPE, colorants azoïques et phtalates.",
-      "image": "/images/teinture.jpg",
+      "image": "/images/teinture.webp",
       "description": "Couper, filer, tisser, teindre : des étapes gourmandes en énergie et en chimie. Sans traitement des effluents, les colorants et auxiliaires partent dans les rivières. Chaque année, ~240 000 t de microplastiques finissent dans l’environnement, et sur certaines plages scandinaves, jusqu’à 90 % des microplastiques trouvés sont des fibres textiles."
     },
     {
@@ -27,7 +27,7 @@
       "statLabel": "Salaire & sécurité (ex. Bangladesh)",
       "statValue": "~0,32 USD/heure ; 579 décès (2009–2013)",
       "alt": "Viser Fair Wear, SA8000, Fairtrade / Max Havelaar ; demander la transparence atelier et payer le prix d’un salaire vital.",
-      "image": "/images/travail.jpg",
+      "image": "/images/travail.webp",
       "description": "C’est ici que le T-shirt prend forme… souvent loin de chez nous. Délais serrés, salaires trop bas, sécurité insuffisante : le coût réel d’un prix cassé n’apparaît pas sur l’étiquette."
     },
     {
@@ -37,7 +37,7 @@
       "statLabel": "Rythme fast-fashion",
       "statValue": "Avion souvent privilégié (très émetteur)",
       "alt": "Limiter l’aérien, favoriser maritime/rail, regrouper les flux, rapprocher production et vente.",
-      "image": "/images/transport.jpg",
+      "image": "/images/transport.webp",
       "description": "Pour livrer vite, l’avion sert de raccourci… mais plombe le climat. Le “toujours plus vite” a un coût non négligeable même si pour l'instant il parait invisible."
     },
     {
@@ -47,7 +47,7 @@
       "statLabel": "Eau liée au lavage (FR)",
       "statValue": "en moyenne 12 % de l'eau du foyer • environ 14 000 L/an",
       "alt": "Laver à 30 °C, cycles pleins, séchage à l’air, filtres/poches anti-microfibres, réparer pas changer.",
-      "image": "/images/usage.jpg",
+      "image": "/images/usage.webp",
       "description": "L’impact se poursuit chez nous : lavages, séchages, repassages. Une routine simple peut faire une vraie différence: pour l’eau, l’énergie et la durée de vie du vêtement."
     },
     {
@@ -57,7 +57,7 @@
       "statLabel": "Collecte FR (2016)",
       "statValue": "≈ 210 000 t ; ~80 % des textiles finissent encore dans la poubelle et 1 % sont incinérés.",
       "alt": "Donner/vendre/louer, déposer en point d’apport, éviter l’enfouissement/incinération. Qualité = réemploi plus facile.",
-      "image": "/images/fin_vie.jpg",
+      "image": "/images/fin_vie.webp",
       "description": "Un T-shirt ne devrait jamais finir à la poubelle. En France, on collecte et on trie de mieux en mieux… mais l’essentiel part encore aux ordures. Le réemploi local et le recyclage textile réduisent le gâchis."
     }
   ],

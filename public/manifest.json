@@ -1,0 +1,32 @@
+{
+  "name": "Green World - Trajet du T-shirt",
+  "short_name": "GreenWorld",
+  "description": "Application éco-responsable qui retrace le parcours d'un t-shirt",
+  "theme_color": "#10b981",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["education", "lifestyle", "sustainability"],
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Commencer le parcours",
+      "short_name": "Parcours",
+      "description": "Découvrir l'impact environnemental du textile",
+      "url": "/",
+      "icons": []
+    }
+  ]
+}

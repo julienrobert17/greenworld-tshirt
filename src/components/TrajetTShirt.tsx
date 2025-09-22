@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
 import { Sprout, Cog, Shirt, Truck, Store, Recycle, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import jsonData from "../assets/data.json";
+import OptimizedImage from "./OptimizedImage";
 
 // Mapping des icônes pour les associer aux chaînes du JSON
 const iconMap = {
@@ -15,7 +16,7 @@ const iconMap = {
   "Recycle": Recycle
 };
 
-// Transformation des données JSON en format utilisable par le composant
+// Transformation des données JSON en format utilisable par le composant (calculé une seule fois)
 const STEPS = jsonData.steps.map(step => ({
   ...step,
   icon: iconMap[step.icon as keyof typeof iconMap]
@@ -25,14 +26,14 @@ const CTA = jsonData.cta;
 
 // --- Data model loaded from JSON
 
-// --- Helper animations
+// --- Helper animations (mémoisé pour éviter les re-créations)
 const variants = {
   enter: (direction: number) => ({ x: direction > 0 ? 40 : -40, opacity: 0 }),
   center: { x: 0, opacity: 1 },
   exit: (direction: number) => ({ x: direction > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function TrajetTShirt() {
+export default React.memo(function TrajetTShirt() {
   const [index, setIndex] = React.useState(0);
   const [direction, setDirection] = React.useState(0);
   const prefersReduced = useReducedMotion();
@@ -40,17 +41,18 @@ export default function TrajetTShirt() {
   const step = STEPS[index];
   const Icon = step.icon;
 
-  function goTo(i: number) {
+  const goTo = useCallback((i: number) => {
+    if (i === index) return; // Éviter les re-renders inutiles
     setDirection(i > index ? 1 : -1);
     setIndex(Math.max(0, Math.min(STEPS.length - 1, i)));
-  }
+  }, [index]);
 
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
+  const next = useCallback(() => goTo(index + 1), [goTo, index]);
+  const prev = useCallback(() => goTo(index - 1), [goTo, index]);
 
   return (
     <div className="trajet-tshirt">
-      {/* Background image - now full screen */}
+      {/* Background image - optimized with lazy loading */}
       <AnimatePresence mode="wait">
         <motion.div
           key={step.id}
@@ -58,12 +60,15 @@ export default function TrajetTShirt() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="trajet-tshirt__background"
+          className="trajet-tshirt__background-wrapper"
           aria-hidden
-          style={{
-            backgroundImage: `url(${step.image})`,
-          }}
-        />
+        >
+          <OptimizedImage
+            src={step.image}
+            alt={`Background pour ${step.title}`}
+            className="trajet-tshirt__background"
+          />
+        </motion.div>
       </AnimatePresence>
 
       {/* Progress bar - fixed at top */}
@@ -160,10 +165,10 @@ export default function TrajetTShirt() {
       <div className="trajet-tshirt__vignette" aria-hidden />
     </div>
   );
-}
+});
 
-// --- Keyboard shortcuts component
-function KeyShortcuts({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) {
+// --- Keyboard shortcuts component (mémoisé)
+const KeyShortcuts = React.memo(function KeyShortcuts({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) {
   React.useEffect(() => {
     function handler(e: KeyboardEvent) {
       if (e.key === "ArrowLeft") onPrev();
@@ -173,4 +178,4 @@ function KeyShortcuts({ onPrev, onNext }: { onPrev: () => void; onNext: () => vo
     return () => window.removeEventListener("keydown", handler);
   }, [onPrev, onNext]);
   return null;
-}
+});
