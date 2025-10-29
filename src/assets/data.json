@@ -16,7 +16,7 @@
       "icon": "Cog",
       "statLabel": "Eaux polluées par la production textile",
       "statValue": "~20 % de la pollution de l’eau",
-      "alt": "Chercher OEKO-TEX / Bluesign, procédés en boucles d’eau fermées, interdiction des NPE, colorants azoïques et phtalates.",
+      "alt": "Chercher OEKO-TEX / Bluesign, procédés en boucles d’eau fermées.",
       "image": "/images/teinture.webp",
       "description": "Couper, filer, tisser, teindre : des étapes gourmandes en énergie et en chimie. Sans traitement des effluents, les colorants et auxiliaires partent dans les rivières. Chaque année, ~240 000 t de microplastiques finissent dans l’environnement, et sur certaines plages scandinaves, jusqu’à 90 % des microplastiques trouvés sont des fibres textiles."
     },
