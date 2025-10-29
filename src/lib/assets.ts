@@ -2,12 +2,12 @@
  * Utilitaires pour gérer les chemins d'assets en fonction de l'environnement
  */
 
-// Récupérer la base URL depuis l'import.meta (Vite)
+
 export const getBaseUrl = (): string => {
   return import.meta.env.BASE_URL || '/';
 };
 
-// Construire un chemin d'asset complet
+
 export const getAssetPath = (path: string): string => {
   const baseUrl = getBaseUrl();
   
@@ -21,12 +21,12 @@ export const getAssetPath = (path: string): string => {
   return fullPath.replace(/([^:]\/)\/+/g, '$1');
 };
 
-// Vérifier si on est en mode développement
+
 export const isDev = (): boolean => {
   return import.meta.env.DEV;
 };
 
-// Vérifier si on est en production
+
 export const isProd = (): boolean => {
   return import.meta.env.PROD;
 };

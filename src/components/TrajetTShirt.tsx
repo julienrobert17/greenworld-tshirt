@@ -1,12 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
 import { Sprout, Cog, Shirt, Truck, Store, Recycle, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import jsonData from "../assets/data.json";
 import OptimizedImage from "./OptimizedImage";
+import { WelcomeModal } from "./Modal";
 
-// Mapping des icônes pour les associer aux chaînes du JSON
 const iconMap = {
   "Sprout": Sprout,
   "Cog": Cog,
@@ -16,7 +16,6 @@ const iconMap = {
   "Recycle": Recycle
 };
 
-// Transformation des données JSON en format utilisable par le composant (calculé une seule fois)
 const STEPS = jsonData.steps.map(step => ({
   ...step,
   icon: iconMap[step.icon as keyof typeof iconMap]
@@ -24,9 +23,6 @@ const STEPS = jsonData.steps.map(step => ({
 
 const CTA = jsonData.cta;
 
-// --- Data model loaded from JSON
-
-// --- Helper animations (mémoisé pour éviter les re-créations)
 const variants = {
   enter: (direction: number) => ({ x: direction > 0 ? 40 : -40, opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -36,13 +32,26 @@ const variants = {
 export default React.memo(function TrajetTShirt() {
   const [index, setIndex] = React.useState(0);
   const [direction, setDirection] = React.useState(0);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const prefersReduced = useReducedMotion();
 
   const step = STEPS[index];
   const Icon = step.icon;
 
+  useEffect(() => {
+    // Afficher la modal à chaque refresh de page
+    const timer = setTimeout(() => {
+      setShowWelcomeModal(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleCloseWelcomeModal = useCallback(() => {
+    setShowWelcomeModal(false);
+  }, []);
+
   const goTo = useCallback((i: number) => {
-    if (i === index) return; // Éviter les re-renders inutiles
+    if (i === index) return;
     setDirection(i > index ? 1 : -1);
     setIndex(Math.max(0, Math.min(STEPS.length - 1, i)));
   }, [index]);
@@ -52,7 +61,6 @@ export default React.memo(function TrajetTShirt() {
 
   return (
     <div className="trajet-tshirt">
-      {/* Background image - optimized with lazy loading */}
       <AnimatePresence mode="wait">
         <motion.div
           key={step.id}
@@ -71,7 +79,6 @@ export default React.memo(function TrajetTShirt() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Progress bar - fixed at top */}
       <div className="trajet-tshirt__progress">
         <Progress value={((index + 1) / STEPS.length) * 100} />
       </div>
@@ -163,11 +170,17 @@ export default React.memo(function TrajetTShirt() {
 
       {/* Subtle vignette */}
       <div className="trajet-tshirt__vignette" aria-hidden />
+
+      {/* Modal de bienvenue */}
+      <WelcomeModal 
+        isOpen={showWelcomeModal}
+        onClose={handleCloseWelcomeModal}
+      />
     </div>
   );
 });
 
-// --- Keyboard shortcuts component (mémoisé)
+
 const KeyShortcuts = React.memo(function KeyShortcuts({ onPrev, onNext }: { onPrev: () => void; onNext: () => void }) {
   React.useEffect(() => {
     function handler(e: KeyboardEvent) {
